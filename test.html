@@ -3,35 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dynamic Table Generation</title>
-<style>
-  table {
-    border-collapse: collapse;
-    width: 50%;
-    margin: 20px auto;
-  }
-  th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-  }
-</style>
+<title>Automated File Processing</title>
 </head>
 <body>
   <h1>Table 1</h1>
-  <table id="table1">
-    <!-- Table 1 content will be inserted here dynamically -->
-  </table>
+  <table id="table1"></table>
 
   <h1>Table 2</h1>
-  <table id="table2">
-    <!-- Table 2 content will be inserted here dynamically -->
-  </table>
+  <table id="table2"></table>
 
-  <!-- File input for uploading CSV files -->
-  <input type="file" id="Table_Input" accept=".csv">
+  <!-- Placeholder for loading indicator or messages -->
+  <div id="loadingMessage">Loading...</div>
 
-  <!-- Include your JavaScript file or code here -->
-  <script src="./test.js"></script>
+  <!-- Placeholder for error messages -->
+  <div id="errorMessage" style="color: red;"></div>
+
+  <script src="script.js"></script> <!-- Reference your JavaScript file here -->
 </body>
 </html>
