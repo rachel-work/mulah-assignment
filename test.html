@@ -1,22 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automated File Processing</title>
-</head>
-<body>
-  <h1>Table 1</h1>
-  <table id="table1"></table>
+<html>
+    <head>
+        <title>Table Output & Processing</title>
+        <style>
+            *{
+                font-family: Arial, Helvetica, sans-serif;
+                box-sizing: border-box;
+            }
+            table{
+                border-collapse: collapse;
+            }
+            table td{
+                padding: 10pax;
+                border: 1px solid #000;
+            }
+        </style>
+        <script></script>
+    </head>
+    <body>
+        <input type="file" accept=".csv" id="pick">
+        <table id="table"></table>
+        <script>
+            window.onload = () => {
+                // var reader = new FileReader(), 
+                //     picker = document.getElementById("picker"),
+                //     table = document.getElementById("table");
+                
+                // picker.onchange = () => reader.readAsText(picker.files[0]);
+                // reader.onloadend = () => {
+                //     let csv = reader.result;
+                //     // console.log(csv);
+                //     table.innerHTML = "";
+                //     let rows = csv.split("\r\n");
+                //     for (let row of rows) {
+                //         let cols = row.match(/(?:\"([^\"]*(?:\"\"[^\"]*)*)\")|([^\",]+)/g);
+                //         if (cols != null){
+                //             let tr = table.inserRow();
+                //             for (let col of cols) {
+                //                 let td = tr.insertCell();
+                //                 td.innerHTML = col.replace(/(^"|"$)/g, "");
+                //             }
+                //         }
+                //     }
+                // }
 
-  <h1>Table 2</h1>
-  <table id="table2"></table>
-
-  <!-- Placeholder for loading indicator or messages -->
-  <div id="loadingMessage">Loading...</div>
-
-  <!-- Placeholder for error messages -->
-  <div id="errorMessage" style="color: red;"></div>
-
-</body>
+                var table = document.getElementById("table");
+                fetch("Table_Input.csv")
+                .then(res => res.text())
+                .then(csv => {
+                    table.innerHTML = "";
+                    let rows = csv.split("\r\n");
+                    for (let row of rows) {
+                        let cols = row.match(/(?:\"([^\"]*(?:\"\"[^\"]*)*)\")|([^\",]+)/g);
+                        if (cols != null){
+                            let tr = table.inserRow();
+                            for (let col of cols) {
+                                let td = tr.insertCell();
+                                td.innerHTML = col.replace(/(^"|"$)/g, "");
+                            }
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
 </html>
