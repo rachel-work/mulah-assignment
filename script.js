@@ -78,6 +78,11 @@ window.onload = () => {
 
     function calculateTable2Data() {
         const table2 = document.getElementById("table2");
+        const headerRow = table2.insertRow(0);
+        const categoryHeader = headerRow.insertCell(0);
+        const valueHeader = headerRow.insertCell(1);
+        categoryHeader.textContent = "Category";
+        valueHeader.textContent = "Value";
         table2.innerHTML = '';
     
         // Define the formulas for Alpha, Beta, and Charlie
