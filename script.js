@@ -105,7 +105,6 @@ window.onload = () => {
     function calculateFormula(formula) {
         // Extract the operands and operator from the formula
         const [operand1, operator, operand2] = formula.split(' ');
-        console.log(operand1, operator, operand2);
         // Extract numeric values from operands
         const value1 = getValue(operand1);
         const value2 = getValue(operand2);
@@ -132,7 +131,6 @@ window.onload = () => {
 
     function getValue(operand) {
         var cells = table1.getElementsByTagName("td");
-        console.log(cells);
         for (var i = 0; i < cells.length; i++) {
             console.log('enter for loop');
             var cellValue = cells[i].textContent.trim();
