@@ -130,7 +130,6 @@ window.onload = () => {
     }
 
     function getValue(operand) {
-        var table1 = document.getElementById("table1");
         if (!table1) {
             console.error('Table not found.');
             return null;
