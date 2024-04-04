@@ -17,16 +17,15 @@ table th {
 .align-right {
     text-align: right;
 }
+
 #table1 th.align-right {
     text-align: left;
 }
 
-/* Table 2 Styles */
 #table2 {
     margin-top: auto;
     border-collapse: collapse;
 }
-
 #table2 th {
     border: 1px solid #000;
     text-align: center; 
