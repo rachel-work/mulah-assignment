@@ -9,7 +9,7 @@ table td, table th {
     font-size: 11px;
     border: 1px solid #000;
     text-align: left;
-    width: 50px; 
+    width: 100px; 
 }
 .align-right {
     text-align: right;
