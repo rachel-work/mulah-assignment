@@ -23,6 +23,7 @@ table th {
 
 /* Table 2 Styles */
 #table2 {
+    margin-top: auto;
     border-collapse: collapse;
 }
 
