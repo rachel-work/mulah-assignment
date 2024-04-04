@@ -272,8 +272,7 @@ window.onload = () => {
         console.log('Extracted Row Index:', rowIndex);
     
         // Check if the extracted row index is valid
-        console.log(table1.rows.length);
-        if (isNaN(rowIndex) || rowIndex < 1 || rowIndex > table1.rows.length) {
+        if (isNaN(rowIndex) || rowIndex < 1) {
             console.error('Invalid row index for operand:', operand);
             return null;
         }
