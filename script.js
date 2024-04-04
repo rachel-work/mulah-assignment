@@ -131,6 +131,7 @@ window.onload = () => {
     }
 
     function getValue(operand) {
+        console.log('in get');
         var cells = table1.getElementsByTagName("td");
         for (var i = 0; i < cells.length; i++) {
             var cellIndex = cells[i].textContent.trim();
