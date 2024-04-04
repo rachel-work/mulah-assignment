@@ -1,14 +1,14 @@
 *{
     box-sizing: border-box;
 }
-table td, table th {
+table {
     font-family: "Aptos Narrow", Arial, Helvetica, sans-serif;
     font-size: 11px;
     border: 1px solid #000;
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
-    width: 10px; 
+    width: 50px; 
 }
 .align-right {
     text-align: right;
