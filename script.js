@@ -67,6 +67,7 @@ window.onload = () => {
                     }
                 }
                 console.log(table1.rows[1]);
+                getValue();
             })
             .catch(error => {
                 console.error('Error loading file:', error);
@@ -167,6 +168,14 @@ window.onload = () => {
         // Return the extracted numeric value
         
         return numericValue;
+    }
+
+    function getValue() {
+        var cells = table1.getElementsByTagName("td");
+        for (var i = 0; i < cells.length; i++) {
+            var cellValue = cells[i].textContent.trim();
+            console.log('Cell Value:', cellValue);
+        }
     }
 
     calculateTable2Data();
