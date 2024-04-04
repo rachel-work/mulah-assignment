@@ -9,7 +9,7 @@ window.onload = () => {
                 for (let row of rows) {
                     let cols = row.match(/(?:\"([^\"]*(?:\"\"[^\"]*)*)\")|([^\",]+)/g);
                     if (cols != null) {
-                        let tr = table.insertRow();
+                        let tr = table1.insertRow();
                         for (let col of cols) {
                             let td = tr.insertCell();
                             td.textContent = col.replace(/(^"|"$)/g, "");
