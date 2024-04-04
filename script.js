@@ -21,6 +21,9 @@ window.onload = () => {
                     for (let col of cols) {
                         let td = tr.insertCell();
                         td.textContent = col.trim();
+                        if (j === 1) {
+                            td.classList.add('align-right');
+                        }
                     }
                 }
             })
