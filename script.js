@@ -108,7 +108,6 @@ window.onload = () => {
         console.log(operand1, operator, operand2);
         // Extract numeric values from operands
         const value1 = getValue(operand1);
-        console.log('called get');
         const value2 = getValue(operand2);
     
         // If values couldn't be extracted, return 0
@@ -130,44 +129,6 @@ window.onload = () => {
                 return 0; // Handle invalid formulas
         }
     }
-
-    // function extractValueFromOperand(operand) {
-    //     // Check if table1 exists
-    //     if (!table1) {
-    //         console.error('Table 1 not found.');
-    //         return null;
-    //     }
-    
-    //     // Extract the numeric part from the operand
-    //     const rowIndex = parseInt(operand.slice(1)) + 1;
-    //     console.log('Operand:', operand);
-    //     console.log('Extracted Row Index:', rowIndex);
-    
-    //     // Check if the extracted row index is valid
-    //     if (isNaN(rowIndex) || rowIndex < 1 || rowIndex > table1.rows.length) {
-    //         console.error('Invalid row index for operand:', operand);
-    //         return null;
-    //     }
-    //     // Check if the row is found
-    //     if (!row) {
-    //         console.error('Row not found for operand:', operand);
-    //         return null;
-    //     }
-    //     // Get the value from the second cell of the row
-    //     var cellValue = getValue();
-    //     console.log('Cell Value:', cellValue);
-    
-    //     // Convert the extracted value to an integer
-    //     const numericValue = parseInt(cellValue);
-    //     if (isNaN(numericValue)) {
-    //         console.error('Invalid value for operand:', operand, cellValue);
-    //         return null;
-    //     }
-    
-    //     // Return the extracted numeric value
-        
-    //     return numericValue;
-    // }
 
     function getValue(operand) {
         var cells = table1.getElementsByTagName("td");
