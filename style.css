@@ -14,3 +14,6 @@ table td, table th {
 .align-right {
     text-align: right;
 }
+#table1 th.align-right {
+    text-align: left;
+}
