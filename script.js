@@ -12,6 +12,9 @@ window.onload = () => {
                     for (let col of cols) {
                         let td = tr.insertCell();
                         td.textContent = col.replace(/(^"|"$)/g, "");
+                        if (tr.cells.length % 2 === 0) {
+                            td.classList.add("align-right");
+                        }
                     }
                 }
             }
