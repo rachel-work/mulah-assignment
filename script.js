@@ -127,7 +127,7 @@ window.onload = () => {
     }
 
     function extractValueFromOperand(operand) {
-        const rowIndex = parseInt(operand.slice(1) + 1); // Extract the numeric part (e.g., 5 from A5)
+        const rowIndex = parseInt(operand.slice(1)) + 1; // Extract the numeric part (e.g., 5 from A5)
         const row = table1.rows[rowIndex];
         
         console.log('Operand:', operand);
