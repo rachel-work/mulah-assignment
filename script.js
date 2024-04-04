@@ -39,6 +39,7 @@
 
 window.onload = () => {
     var table1 = document.getElementById("table1");
+    console.log(table1.rows[0]);
     if (table1) {
         fetch("Table_Input.csv")
             .then(res => res.text())
@@ -66,7 +67,7 @@ window.onload = () => {
                         }
                     }
                 }
-                console.log(table1.rows[0]);
+                
             })
             .catch(error => {
                 console.error('Error loading file:', error);
