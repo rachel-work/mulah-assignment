@@ -70,6 +70,7 @@ window.onload = () => {
             .catch(error => {
                 console.error('Error loading file:', error);
             });
+        console.log(table.rows[0]);
     } else {
         console.error('Table 1 element not found.');
     }
