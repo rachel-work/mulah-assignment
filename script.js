@@ -171,12 +171,11 @@ window.onload = () => {
 
     function getValue(operand) {
         var cells = table1.getElementsByTagName("td");
-        console.log('in get:', cells);
         for (var i = 0; i < cells.length; i++) {
-            console.log(cells[i]);
-            if (cells[i] == operand) {
+            var cellIndex = cells[i].textContent.trim();
+            console.log('cellindex:', cellIndex);
+            if (cellIndex[i] == operand) {
                 var cellValue = cells[i+1].textContent.trim();
-                console.log('cells[i]:', cells[i]);
                 console.log('Cell Value:', cellValue); 
             }
         }
