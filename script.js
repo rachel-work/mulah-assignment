@@ -75,30 +75,6 @@ window.onload = () => {
     }
 
     function calculateTable2Data() {
-    const table1Rows = Array.from(table1.rows).slice(1); // Skip the header row
-    const table2 = document.getElementById("table2");
-    table2.innerHTML = '';
-
-    // Define the formulas for Alpha, Beta, and Charlie
-    const formulas = {
-        Alpha: "A5 + A20",
-        Beta: "A15 / A7",
-        Charlie: "A13 * A12"
-    };
-
-    // Loop through the formulas and calculate the values for Table 2
-    for (let category in formulas) {
-        let value = calculateFormula(formulas[category]);
-        
-        const row = table2.insertRow();
-        const cell1 = row.insertCell(0);
-        const cell2 = row.insertCell(1);
-        cell1.textContent = category;
-        cell2.textContent = value;
-    }
-}
-
-    function calculateTable2Data() {
         const table1Rows = Array.from(table1.rows).slice(1); // Skip the header row
         const table2 = document.getElementById("table2");
         table2.innerHTML = '';
@@ -124,9 +100,9 @@ window.onload = () => {
 
     function calculateFormula(formula) {
         const [op1, operator, op2] = formula.split(' ');
-        const value1 = parseInt(op1.slice(1)); // Extract the numeric value from op1 (e.g., A5)
-        const value2 = parseInt(op2.slice(1)); // Extract the numeric value from op2 (e.g., A20)
-    
+        const value1 = parseInt(table1.rows[parseInt(op1.slice(1))].cells[1].textContent.trim());
+        const value2 = parseInt(table1.rows[parseInt(op2.slice(1))].cells[1].textContent.trim());
+        
         switch (operator) {
             case '+':
                 return value1 + value2;
