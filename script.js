@@ -66,11 +66,11 @@ window.onload = () => {
                         }
                     }
                 }
+                console.log(table1.rows[0]);
             })
             .catch(error => {
                 console.error('Error loading file:', error);
             });
-        console.log(table1.rows[0]);
     } else {
         console.error('Table 1 element not found.');
     }
