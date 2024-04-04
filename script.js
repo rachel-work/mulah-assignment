@@ -134,6 +134,7 @@ window.onload = () => {
         var cells = table1.getElementsByTagName("td");
         for (var i = 0; i < cells.length; i++) {
             var cellValue = cells[i].textContent.trim();
+            console.log('cellvalue: ', cellValue);
             if (cellValue === operand) {
                 var nextCellValue = cells[i + 1].textContent.trim();
                 return nextCellValue;
