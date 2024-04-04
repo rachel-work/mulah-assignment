@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Table Display</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h2>Table 1</h2>
-    <table id="table1">
-        <tr>
-            <th>Category</th>
-            <th>Value</th>
-        </tr>
-    </table>
-    
-    <h2>Table 2</h2>
-    <table id="table2">
-        <tr>
-            <th>Category</th>
-            <th>Value</th>
-        </tr>
-    </table>
-
-    <script src="script.js"></script>
-</body>
+<html>
+    <head>
+        <title>Table Output & Processing</title>
+        <style>
+            *{
+                font-family: Arial, Helvetica, sans-serif;
+                box-sizing: border-box;
+            }
+            table{
+                border-collapse: collapse;
+            }
+            table td{
+                padding: 10pax;
+                border: 1px solid #000;
+            }
+        </style>
+        <script></script>
+    </head>
+    <body>
+        <input type="file" accept=".csv" id="pick">
+        <table id="table"></table>
+        <script>
+            window.onload = () => {
+                var reader = new FileReader(), 
+                    picker = document.getElementById("picker"),
+                    table = document.getElementById("table");
+                
+                picker.onchange = () => reader.readAsText(picker.files[0]);
+                reader.onloadend = () => {
+                    let csv = reader.result;
+                    // console.log(csv);
+                    table.innerHTML = "";
+                    let rows = csv.split("\r\n");
+                    for (let row of rows) {
+                        let cols = row.match(/(?:\"([^\"]*(?:\"\"[^\"]*)*)\")|([^\",]+)/g);
+                        if (cols != null){
+                            let tr = table.inserRow();
+                            for (let col of cols) {
+                                let td = tr.insertCell();
+                                td.innerHTML = col.replace(/(^"|"$)/g, "");
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
 </html>
