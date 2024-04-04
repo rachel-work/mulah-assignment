@@ -155,7 +155,7 @@ window.onload = () => {
         }
     
         // Get the value from the second cell of the row
-        const cellValue = row.cells[1].textContent.trim();
+        const cellValue = row.cells[1];
         console.log('Cell Value:', cellValue);
     
         // Convert the extracted value to an integer
