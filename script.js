@@ -66,7 +66,6 @@ window.onload = () => {
                         }
                     }
                 }
-                console.log(table1.rows[1]);
             })
             .catch(error => {
                 console.error('Error loading file:', error);
@@ -109,6 +108,7 @@ window.onload = () => {
         console.log(operand1, operator, operand2);
         // Extract numeric values from operands
         const value1 = getValue(operand1);
+        console.log('called get');
         const value2 = getValue(operand2);
     
         // If values couldn't be extracted, return 0
@@ -171,6 +171,7 @@ window.onload = () => {
 
     function getValue(operand) {
         var cells = table1.getElementsByTagName("td");
+        console.log('in get:', cells);
         for (var i = 0; i < cells.length; i++) {
             console.log(cells[i]);
             if (cells[i] == operand) {
