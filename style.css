@@ -5,6 +5,7 @@ table td, table th {
     font-family: "Aptos Narrow", Arial, Helvetica, sans-serif;
     font-size: 11px;
     border: 1px solid #000;
+    border-spacing: 0;
     text-align: left;
     width: 10px; 
 }
