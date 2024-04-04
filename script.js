@@ -296,11 +296,12 @@ window.onload = () => {
         var cells = table1.getElementsByTagName("td");
         for (var i = 0; i < cells.length; i++) {
             var cellValue = cells[i].textContent.trim();
-            if (i === rowIndex) {
+            if (i % table1.rows[0].cells.length === rowIndex) {
                 return cellValue;
             }
         }
     }
+
 
     calculateTable2Data();
 };
