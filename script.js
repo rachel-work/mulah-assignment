@@ -1,10 +1,10 @@
 window.onload = () => {
-    var table = document.getElementById("table");
-    if (table) {
+    var table1 = document.getElementById("table1");
+    if (table1) {
         fetch("Table_Input.csv")
             .then(res => res.text())
             .then(csv => {
-                table.innerHTML = "";
+                table1.innerHTML = "";
                 let rows = csv.split("\r\n");
                 for (let row of rows) {
                     let cols = row.match(/(?:\"([^\"]*(?:\"\"[^\"]*)*)\")|([^\",]+)/g);
