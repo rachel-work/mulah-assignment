@@ -127,9 +127,9 @@ window.onload = () => {
     }
 
     function extractValueFromOperand(operand) {
-        const rowIndex = parseInt(operand.slice(1)); // Extract the numeric part (e.g., 5 from A5)
-        const row = table1.rows[rowIndex+1];
-        console.log('Index:', rowIndex);
+        const rowIndex = parseInt(operand.slice(1) + 1); // Extract the numeric part (e.g., 5 from A5)
+        const row = table1.rows[rowIndex];
+        
         console.log('Operand:', operand);
         console.log('Row:', row);
     
@@ -137,6 +137,7 @@ window.onload = () => {
             console.error('Row not found for operand:', operand);
             return null; // Return null if row not found
         }
+        console.log('Index:', rowIndex);
     
         const cellValue = row.cells[1].textContent.trim(); // Get the value from the second cell (index 1)
         const numericValue = parseInt(cellValue); // Convert the extracted value to integer
