@@ -130,18 +130,33 @@ window.onload = () => {
     }
 
     function getValue(operand) {
+        var table1 = document.getElementById("table1");
+        if (!table1) {
+            console.error('Table not found.');
+            return null;
+        }
+    
         var cells = table1.getElementsByTagName("td");
+        if (!cells || cells.length === 0) {
+            console.error('No cells found in the table.');
+            return null;
+        }
+    
         for (var i = 0; i < cells.length; i++) {
-            console.log('enter for loop');
+            console.log('Entering loop...');
             var cellValue = cells[i].textContent.trim();
-            console.log('cellvalue: ', cellValue);
+            console.log('Cell value:', cellValue);
             if (cellValue === operand) {
                 var nextCellValue = cells[i + 1].textContent.trim();
+                console.log('Next cell value:', nextCellValue);
                 return nextCellValue;
             }
         }
+    
+        console.error('Operand not found:', operand);
         return null;
     }
+
 
 
     calculateTable2Data();
