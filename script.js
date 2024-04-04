@@ -131,18 +131,18 @@ window.onload = () => {
     }
 
     function getValue(operand) {
-        console.log('in get');
         var cells = table1.getElementsByTagName("td");
         for (var i = 0; i < cells.length; i++) {
-            var cellIndex = cells[i].textContent.trim();
-            console.log('cellindex:', cellIndex);
-            if (cellIndex[i] == operand) {
-                var cellValue = cells[i+1].textContent.trim();
-                console.log('Cell Value:', cellValue); 
+            var cellValue = cells[i].textContent.trim();
+            if (cellValue === operand) {
+                var nextCellValue = cells[i + 1].textContent.trim();
+                return nextCellValue;
             }
         }
-        return cellValue;
+        console.error('Operand not found:', operand);
+        return null; // Return null if the operand is not found in the table
     }
+
 
     calculateTable2Data();
 };
