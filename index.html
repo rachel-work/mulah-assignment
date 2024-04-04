@@ -22,14 +22,10 @@
         <table id="table"></table>
         <script>
             window.onload = () => {
-                var reader = new FileReader(), 
-                    picker = document.getElementById("picker"),
-                    table = document.getElementById("table");
-                
-                picker.onchange = () => reader.readAsText(picker.files[0]);
-                reader.onloadend = () => {
-                    let csv = reader.result;
-                    // console.log(csv);
+                var table = document.getElementById("table");
+                fetch ("Table_Input.csv")
+                .then(res => res.text())
+                .then(csv => {
                     table.innerHTML = "";
                     let rows = csv.split("\r\n");
                     for (let row of rows) {
@@ -42,7 +38,7 @@
                             }
                         }
                     }
-                }
+                })
             }
         </script>
     </body>
