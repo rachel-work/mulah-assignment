@@ -137,6 +137,7 @@ window.onload = () => {
         }
     
         var cells = table1.getElementsByTagName("td");
+        console.log(cells);
         if (!cells || cells.length === 0) {
             console.error('No cells found in the table.');
             return null;
