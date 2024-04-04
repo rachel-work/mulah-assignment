@@ -101,7 +101,7 @@ window.onload = () => {
     function calculateFormula(formula) {
         // Extract the operands and operator from the formula
         const [operand1, operator, operand2] = formula.split(' ');
-    
+        console.log(operand1, operator, operand2);
         // Extract numeric values from operands
         const value1 = extractValueFromOperand(operand1);
         const value2 = extractValueFromOperand(operand2);
