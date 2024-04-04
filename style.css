@@ -24,13 +24,14 @@ table th {
 /* Table 2 Styles */
 #table2 {
     border-collapse: collapse;
-    margin-top: 20px; /* Add margin for spacing */
 }
 
-#table2 th,
-#table2 td {
-    padding: 8px;
+#table2 th {
     border: 1px solid #000;
     text-align: center; 
     font-weight: bold;
+}
+#table2 td {
+    border: 1px solid #000;
+    text-align: center; 
 }
