@@ -77,7 +77,6 @@ window.onload = () => {
     }
 
     function calculateTable2Data() {
-        const table1Rows = Array.from(table1.rows).slice(1); // Skip the header row
         const table2 = document.getElementById("table2");
         table2.innerHTML = '';
     
