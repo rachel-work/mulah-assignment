@@ -132,6 +132,7 @@ window.onload = () => {
 
     function getValue(operand) {
         var cells = table1.getElementsByTagName("td");
+        console.log(cells);
         for (var i = 0; i < cells.length; i++) {
             var cellValue = cells[i].textContent.trim();
             console.log('cellvalue: ', cellValue);
@@ -140,8 +141,7 @@ window.onload = () => {
                 return nextCellValue;
             }
         }
-        console.error('Operand not found:', operand);
-        return null; // Return null if the operand is not found in the table
+        return null;
     }
 
 
