@@ -18,9 +18,10 @@ window.onload = () => {
                 for (let i = 1; i < rows.length; i++) {
                     let cols = rows[i].split(',');
                     let tr = table1.insertRow();
-                    for (let col of cols) {
+                    for (let j = 0; j < cols.length; j++) {
                         let td = tr.insertCell();
-                        td.textContent = col.trim();
+                        td.textContent = cols[j].trim();
+                        // Apply align-right class to cells in the right column (index 1)
                         if (j === 1) {
                             td.classList.add('align-right');
                         }
