@@ -125,8 +125,7 @@ window.onload = () => {
                 return 0; // Handle invalid formulas
         }
     }
-    
-    // Helper function to extract numeric value from operand (e.g., A5)
+
     function extractValueFromOperand(operand) {
         const rowIndex = parseInt(operand.slice(1)); // Extract the numeric part (e.g., 5 from A5)
         const row = table1.rows[rowIndex];
