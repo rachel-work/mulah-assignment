@@ -139,7 +139,7 @@ window.onload = () => {
         }
     
         // Extract the numeric part from the operand
-        const rowIndex = parseInt(operand.slice(1));
+        const rowIndex = parseInt(operand.slice(1)) + 1;
         console.log('Operand:', operand);
         console.log('Extracted Row Index:', rowIndex);
     
@@ -148,19 +148,13 @@ window.onload = () => {
             console.error('Invalid row index for operand:', operand);
             return null;
         }
-    
-        // Get the row from table1
-        const row = table1.rows[rowIndex - 1]; // Adjusted for zero-based indexing
-        console.log('Row:', row);
-    
         // Check if the row is found
         if (!row) {
             console.error('Row not found for operand:', operand);
             return null;
         }
-    
         // Get the value from the second cell of the row
-        const cellValue = row.cells[1];
+        var cellValue = parseInt(table1.rows[rowIndex].cells[1].textContent.trim());
         console.log('Cell Value:', cellValue);
     
         // Convert the extracted value to an integer
@@ -171,6 +165,7 @@ window.onload = () => {
         }
     
         // Return the extracted numeric value
+        
         return numericValue;
     }
 
