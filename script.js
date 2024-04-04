@@ -74,21 +74,46 @@ window.onload = () => {
         console.error('Table 1 element not found.');
     }
 
-    // Function to calculate Table 2 data and display it
     function calculateTable2Data() {
-        const table1Rows = table1.rows;
+    const table1Rows = Array.from(table1.rows).slice(1); // Skip the header row
+    const table2 = document.getElementById("table2");
+    table2.innerHTML = '';
+
+    // Define the formulas for Alpha, Beta, and Charlie
+    const formulas = {
+        Alpha: "A5 + A20",
+        Beta: "A15 / A7",
+        Charlie: "A13 * A12"
+    };
+
+    // Loop through the formulas and calculate the values for Table 2
+    for (let category in formulas) {
+        let value = calculateFormula(formulas[category]);
+        
+        const row = table2.insertRow();
+        const cell1 = row.insertCell(0);
+        const cell2 = row.insertCell(1);
+        cell1.textContent = category;
+        cell2.textContent = value;
+    }
+}
+
+    function calculateTable2Data() {
+        const table1Rows = Array.from(table1.rows).slice(1); // Skip the header row
         const table2 = document.getElementById("table2");
         table2.innerHTML = '';
-
-        const mappings = {
+    
+        // Define the formulas for Alpha, Beta, and Charlie
+        const formulas = {
             Alpha: "A5 + A20",
             Beta: "A15 / A7",
             Charlie: "A13 * A12"
         };
-
-        for (let i = 0; i < table1Rows.length; i++) {
-            const category = table1Rows[i].cells[0].textContent;
-            const value = mappings[category];
+    
+        // Loop through the formulas and calculate the values for Table 2
+        for (let category in formulas) {
+            let value = calculateFormula(formulas[category]);
+            
             const row = table2.insertRow();
             const cell1 = row.insertCell(0);
             const cell2 = row.insertCell(1);
@@ -97,6 +122,21 @@ window.onload = () => {
         }
     }
 
-    // Call the function to calculate and display Table 2 data
+    function calculateFormula(formula) {
+        const [op1, operator, op2] = formula.split(' ');
+        const value1 = parseInt(op1.slice(1)); // Extract the numeric value from op1 (e.g., A5)
+        const value2 = parseInt(op2.slice(1)); // Extract the numeric value from op2 (e.g., A20)
+    
+        switch (operator) {
+            case '+':
+                return value1 + value2;
+            case '/':
+                return Math.floor(value1 / value2);
+            case '*':
+                return value1 * value2;
+            default:
+                return 0; // Handle invalid formulas
+        }
+    }
     calculateTable2Data();
 };
