@@ -172,8 +172,9 @@ window.onload = () => {
     function getValue(operand) {
         var cells = table1.getElementsByTagName("td");
         for (var i = 0; i < cells.length; i++) {
-            if (i == operand) {
+            if (cells[i] == operand) {
                 var cellValue = cells[i+1].textContent.trim();
+                console.log('cells[i]:', cells[i]);
                 console.log('Cell Value:', cellValue); 
             }
         }
