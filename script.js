@@ -294,9 +294,11 @@ window.onload = () => {
 
     function getValue(rowIndex) {
         var cells = table1.getElementsByTagName("td");
+        console.log(cells);
         for (var i = 0; i < cells.length; i++) {
             var cellValue = cells[i].textContent.trim();
             if (i % table1.rows[0].cells.length === rowIndex) {
+                console.log(cellValue);
                 return cellValue;
             }
         }
