@@ -127,27 +127,47 @@ window.onload = () => {
     }
 
     function extractValueFromOperand(operand) {
-        const rowIndex = parseInt(operand.slice(1)) - 1; // Extract the numeric part (e.g., 5 from A5)
-        const row = table1.rows[rowIndex];
-        
+        // Check if table1 exists
+        if (!table1) {
+            console.error('Table 1 not found.');
+            return null;
+        }
+    
+        // Extract the numeric part from the operand
+        const rowIndex = parseInt(operand.slice(1));
         console.log('Operand:', operand);
+        console.log('Extracted Row Index:', rowIndex);
+    
+        // Check if the extracted row index is valid
+        if (isNaN(rowIndex) || rowIndex < 1 || rowIndex > table1.rows.length) {
+            console.error('Invalid row index for operand:', operand);
+            return null;
+        }
+    
+        // Get the row from table1
+        const row = table1.rows[rowIndex - 1]; // Adjusted for zero-based indexing
         console.log('Row:', row);
     
+        // Check if the row is found
         if (!row) {
             console.error('Row not found for operand:', operand);
-            return null; // Return null if row not found
+            return null;
         }
-        console.log('Index:', rowIndex);
     
-        const cellValue = row.cells[1].textContent.trim(); // Get the value from the second cell (index 1)
-        const numericValue = parseInt(cellValue); // Convert the extracted value to integer
+        // Get the value from the second cell of the row
+        const cellValue = row.cells[1].textContent.trim();
+        console.log('Cell Value:', cellValue);
     
+        // Convert the extracted value to an integer
+        const numericValue = parseInt(cellValue);
         if (isNaN(numericValue)) {
             console.error('Invalid value for operand:', operand, cellValue);
-            return null; // Return null if the extracted value is not a number
+            return null;
         }
     
-        return numericValue; // Return the extracted numeric value
+        // Return the extracted numeric value
+        return numericValue;
     }
+
     calculateTable2Data();
 };
