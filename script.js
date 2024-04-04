@@ -99,10 +99,20 @@ window.onload = () => {
     }
 
     function calculateFormula(formula) {
-        const [op1, operator, op2] = formula.split(' ');
-        const value1 = parseInt(table1.rows[parseInt(op1.slice(1))].cells[1].textContent.trim());
-        const value2 = parseInt(table1.rows[parseInt(op2.slice(1))].cells[1].textContent.trim());
-        
+        // Extract the operands and operator from the formula
+        const [operand1, operator, operand2] = formula.split(' ');
+    
+        // Extract numeric values from operands
+        const value1 = extractValueFromOperand(operand1);
+        const value2 = extractValueFromOperand(operand2);
+    
+        // If values couldn't be extracted, return 0
+        if (value1 === null || value2 === null) {
+            console.error('Invalid operands:', operand1, operand2);
+            return 0;
+        }
+    
+        // Perform the corresponding mathematical operation
         switch (operator) {
             case '+':
                 return value1 + value2;
@@ -111,8 +121,30 @@ window.onload = () => {
             case '*':
                 return value1 * value2;
             default:
+                console.error('Invalid operator:', operator);
                 return 0; // Handle invalid formulas
         }
+    }
+    
+    // Helper function to extract numeric value from operand (e.g., A5)
+    function extractValueFromOperand(operand) {
+        const rowIndex = parseInt(operand.slice(1)); // Extract the numeric part (e.g., 5 from A5)
+        const row = table1.rows[rowIndex];
+    
+        if (!row) {
+            console.error('Row not found for operand:', operand);
+            return null; // Return null if row not found
+        }
+    
+        const cellValue = row.cells[1].textContent.trim(); // Get the value from the second cell (index 1)
+        const numericValue = parseInt(cellValue); // Convert the extracted value to integer
+    
+        if (isNaN(numericValue)) {
+            console.error('Invalid value for operand:', operand, cellValue);
+            return null; // Return null if the extracted value is not a number
+        }
+    
+        return numericValue; // Return the extracted numeric value
     }
     calculateTable2Data();
 };
