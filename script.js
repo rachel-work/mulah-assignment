@@ -1,25 +1,22 @@
 window.onload = () => {
     var table = document.getElementById("table");
     fetch("Table_Input.csv")
-    .then(res => res.text())
-    .then(csv => {
-        table.innerHTML = "";
-        let rows = csv.split("\r\n");
-        for (let row of rows) {
-            let cols = row.match(/(?:\"([^\"]*(?:\"\"[^\"]*)*)\")|([^\",]+)/g);
-            if (cols != null) {
-                let tr = table.insertRow();
-                for (let col of cols) {
-                    let td = tr.insertCell();
-                    td.textContent = col.replace(/(^"|"$)/g, "");
-                    if (tr.cells.length % 2 === 0) {
-                        td.classList.add("align-right");
-                    }
-                }
-            }
-        }
-    })
-    .catch(error => {
-        console.error('Error loading file:', error);
-    });
+        .then(response => response.text())
+        .then(csv => {
+            table.innerHTML = ""; // Clear existing table content
+            let rows = csv.split(/\r?\n/); // Split rows using new line characters
+            rows.forEach(row => {
+                let cols = row.split(","); // Split each row into columns using comma as delimiter
+                let tr = document.createElement("tr"); // Create a new table row
+                cols.forEach(col => {
+                    let td = document.createElement("td"); // Create a new table cell
+                    td.textContent = col.trim(); // Set cell content and trim whitespace
+                    tr.appendChild(td); // Append cell to row
+                });
+                table.appendChild(tr); // Append row to table
+            });
+        })
+        .catch(error => {
+            console.error('Error loading file:', error);
+        });
 };
