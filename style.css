@@ -21,12 +21,17 @@ table th {
 #table1 th.align-right {
     text-align: left;
 }
-
+.table2-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #000000;
+}
 #table2 {
     margin-top: auto;
     border-collapse: collapse;
-    position: fixed;
-    bottom: 0px;
 }
 #table2 th {
     border: 1px solid #000;
