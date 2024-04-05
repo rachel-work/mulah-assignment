@@ -25,7 +25,7 @@ table th {
 #table2 {
     margin-top: auto;
     border-collapse: collapse;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
 }
 #table2 th {
