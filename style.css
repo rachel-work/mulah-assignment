@@ -24,9 +24,6 @@ table th {
 .table2-container {
     position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
 }
 #table2 {
     margin-top: 10px; 
